@@ -9695,14 +9695,14 @@ try {
   console.log(`Just a little: ${core.getInput('api-token').substring(0,10)}`);
   core.setOutput("messages", ["I see you", "but do you see me"]);
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify({input:github.context.payload}, undefined, 2)
+//   const payload = JSON.stringify({input:github.context.payload}, undefined, 2)
 //   console.log(`The event payload: ${payload}`);
 
   const http = new httpm.HttpClient();
   const additionalHeaders = {
      "Authorization": `Bearer ${core.getInput('api-token')}`
   }
-  const jsonObj = http.postJson(url, payload, additionalHeaders);
+  const jsonObj = http.postJson(url, {input:github.context.payload}, additionalHeaders);
   if (jsonObj.status !== 200) {
     core.setFailed(error.message);
     return
