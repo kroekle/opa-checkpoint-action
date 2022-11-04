@@ -13,12 +13,10 @@ try {
 //   console.log(`The event payload: ${payload}`);
 
   const http = new httpm.HttpClient();
-  const requestOptions = {
-    headers: {
-        "Authorization": `Bearer ${core.getInput('api-token')}`
-    }
+  const additionalHeaders = {
+     "Authorization": `Bearer ${core.getInput('api-token')}`
   }
-  const jsonObj = http.postJson(url, payload, requestOptions);
+  const jsonObj = http.postJson(url, payload, additionalHeaders);
   if (jsonObj.status !== 200) {
     core.setFailed(error.message);
     return
