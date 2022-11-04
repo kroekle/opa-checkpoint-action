@@ -3,13 +3,10 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Run OPA Checkpoint
     steps:
-      - name: Hello world action step
+      - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1
-        with:
-          who-to-greet: 'Kurt'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        uses: kroekle/opa-checkpoint-action@v1.1.1
+      - name: Get the output messages
+        run: echo "The time was ${{ steps.hello.outputs.messages }}"
