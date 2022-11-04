@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-// const github = require('@actions/github');
+const github = require('@actions/github');
 const httpm = require('@actions/http-client')
 
 try {
