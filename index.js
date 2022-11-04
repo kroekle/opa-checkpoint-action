@@ -18,7 +18,7 @@ try {
   }
   const jsonObj = http.postJson(url, {input:github.context.payload}, additionalHeaders);
 
-  console.log(`body: ${jsonObj.result}`);
+  console.log(`body: ${jsonObj}`);
 
 } catch (error) {
   core.setFailed(error.message);
