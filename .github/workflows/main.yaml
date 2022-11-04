@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.1
+        uses: kroekle/opa-checkpoint-action@v1.1.2
+        with:
+          tenant: ${DAS_TENANT}
       - name: Get the output messages
-        run: echo "The time was ${{ steps.hello.outputs.messages }}"
+        run: echo "The messages are ${{ steps.hello.outputs.messages }}"
