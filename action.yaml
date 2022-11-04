@@ -4,15 +4,12 @@ inputs:
   tenant:  # id of input
     description: 'Tenant to call OPA against (e.g. http://<tenant name>.styra.com)'
     required: true
-    default: "${secrets.DAS_TENANT}"
   api-token:  # id of input
     description: 'DAS API token to use when calling tenant'
     required: true
-    default: "${secrets.DAS_API_TOKEN}"
   system-id:  # id of input
     description: 'DAS System id being used'
     required: true
-    default: "${{env.system_id}}"
   rule:  # id of input
     description: 'Rule to call'
     required: true
