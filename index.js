@@ -6,7 +6,7 @@ try {
   const url = `${core.getInput('tenant')}/v1/data/systems/${core.getInput('system-id')}/${core.getInput('rule')}?publish_decision=true`
   console.log(`This is what I'm calling: ${url}`);
   console.log(`Do I have a token: ${core.getInput('api-token').startsWith("f50")}`);
-  console.log(`Just a little: ${core.getInput('api-token').substring(0,2)}`);
+  console.log(`Just a little: ${core.getInput('api-token').substring(0,10)}`);
   core.setOutput("messages", ["I see you", "but do you see me"]);
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify({input:github.context.payload}, undefined, 2)
@@ -15,7 +15,7 @@ try {
   const http = new httpm.HttpClient();
   const requestOptions = {
     headers: {
-        "Authorization": ` Bearer ${core.getInput('api-token')}`
+        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
   }
   const jsonObj = http.postJson(url, payload, requestOptions);
