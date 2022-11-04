@@ -3,15 +3,15 @@ on: [push]
 jobs:
   hello_world_job:
     env:
-      tenant: ${{secrets.DAS_TENANT}}
-      system_id: ${{secrets.DAS_SYSTEM_ID}}
+      tenant: "https://kurt.styra.com"
+      system_id: "e447b48d6c764bb3bfee25809647aefb"
       token: ${{secrets.DAS_API_TOKEN}}
     runs-on: ubuntu-latest
     name: Run OPA Checkpoint
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.14
+        uses: kroekle/opa-checkpoint-action@v1.1.15
         with:
           tenant: ${{env.tenant}}
           system-id: ${{env.system_id}}
