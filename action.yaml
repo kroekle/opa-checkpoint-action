@@ -12,7 +12,7 @@ inputs:
   system-id:  # id of input
     description: 'DAS System id being used'
     required: true
-    default: "${{secrets.DAS_SYSTEM_ID}}"
+    default: "${env.system_id}"
   rule:  # id of input
     description: 'Rule to call'
     required: true
