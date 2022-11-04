@@ -2,13 +2,15 @@ on: [push]
 
 jobs:
   hello_world_job:
+    env:
+      tenant: ${{secrets.DAS_TENANT}}
     runs-on: ubuntu-latest
     name: Run OPA Checkpoint
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.5
+        uses: kroekle/opa-checkpoint-action@v1.1.6
         with:
-          tenant: ${{secrets.DAS_TENANT}}
+          tenant: ${env.tenant}
       - name: Get the output messages
         run: echo "The messages are ${{ steps.hello.outputs.messages }}"
