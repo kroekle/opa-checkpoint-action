@@ -9699,7 +9699,7 @@ try {
   const http = new httpm.HttpClient();
   const requestOptions = {
     headers: {
-        "Authorization": `Bearer ${core.getInput('tenant')}`
+        "Authorization": `Bearer ${core.getInput('token')}`
     }
   }
   const jsonObj = http.postJson(url, payload, requestOptions);
