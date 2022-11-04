@@ -9702,7 +9702,7 @@ try {
         "Authorization": `Bearer ${core.getInput('tenant')}`
     }
   }
-  const jsonObj = http.postJson<any>(url, payload, requestOptions);
+  const jsonObj = http.postJson(url, payload, requestOptions);
   console.log(`body: ${jsonObj.body}`);
 
 } catch (error) {
