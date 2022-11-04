@@ -1,10 +1,23 @@
 name: 'OPA Checkpoints'
 description: 'Add Checkpoints controlled by OPA into your workflows'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  tenant:  # id of input
+    description: 'Tenant to call OPA against (e.g. http://<tenant name>.styra.com)'
     required: true
-    default: 'World'
+    default: "${DAS_TENANT}"
+  api-token:  # id of input
+    description: 'DAS API token to use when calling tenant'
+    required: true
+    default: "${DAS_API_TOKEN}"
+  system-id:  # id of input
+    description: 'DAS System id being used'
+    required: true
+    default: "${DAS_SYSTEM_ID}"
+  rule:  # id of input
+    description: 'Rule to call'
+    required: true
+    default: "rules/main"
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'
