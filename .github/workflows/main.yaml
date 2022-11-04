@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.6
+        uses: kroekle/opa-checkpoint-action@v1.1.7
         with:
           tenant: ${env.tenant}
       - name: Get the output messages
