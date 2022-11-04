@@ -17,9 +17,8 @@ try {
      "Authorization": `Bearer ${core.getInput('api-token')}`
   }
   const jsonObj = http.postJson(url, {input:github.context.payload}, additionalHeaders);
-  console.log(`body: ${jsonObj.status}`);
 
-  console.log(`body: ${jsonObj.body}`);
+  console.log(`body: ${jsonObj.result}`);
 
 } catch (error) {
   core.setFailed(error.message);
