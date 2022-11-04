@@ -10,13 +10,13 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
 //   console.log(`The event payload: ${payload}`);
 
-  const http = httpm.HttpClient();
-  http.requestOptions = {
+  const http = new httpm.HttpClient();
+  const requestOptions = {
     headers: {
         "Authorization": `Bearer ${core.getInput('tenant')}`
     }
   }
-  const jsonObj = http.postJson<any>(url, payload);
+  const jsonObj = http.postJson<any>(url, payload, requestOptions);
   console.log(`body: ${jsonObj.body}`);
 
 } catch (error) {
