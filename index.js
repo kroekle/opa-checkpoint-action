@@ -33,6 +33,6 @@ async function getDecision() {
     const additionalHeaders = {
        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
-    const jsonObj = await http.postJson(url, {input:{[github.event_name]:github.context.payload]}, additionalHeaders);
+    const jsonObj = await http.postJson(url, {input:{[github.event_name]:github.context.payload}}, additionalHeaders);
     return jsonObj;
   }
