@@ -9,14 +9,14 @@ try {
     const jsonObj = getDecision();
 
     jsonObj
-      .then(m => {console.log(`body: ${m}`);core.setOutput("results", m)})
+      .then(m => {console.log(`bodyx: ${m}`);core.setOutput("results", m)})
       .catch(e => {throw e});
 
 } catch (error) {
   core.setFailed(error.message);
 }
 
-async function getDecision() {
+function getDecision() {
     const url = `${core.getInput('tenant')}/v1/data/systems/${core.getInput('system-id')}/${core.getInput('rule')}?publish_decision=true`
     console.log(`This is what I'm calling: ${url}`);
    
@@ -24,6 +24,5 @@ async function getDecision() {
     const additionalHeaders = {
        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
-    const jsonObj = await http.postJson(url, {input:{event:github.event_name, context:github.context.payload}}, additionalHeaders);
-    return jsonObj;
+    return  http.postJson(url, {input:{event:github.event_name, context:github.context.payload}}, additionalHeaders);
   }
