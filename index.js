@@ -22,5 +22,5 @@ function getDecision() {
        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
     console.log(`github: ${JSON.stringify(github)}`);
-    return http.postJson(url, {input:{event:github.event_name, context:github.context.payload}}, additionalHeaders);
+    return http.postJson(url, {input:github.context}, additionalHeaders);
   }
