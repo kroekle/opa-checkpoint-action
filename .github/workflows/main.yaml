@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.35
+        uses: kroekle/opa-checkpoint-action@v1.1.36
         with:
           tenant: ${{env.tenant}}
           system-id: ${{env.system_id}}
           api-token: ${{env.token}}
-      - name: Get the output messages
-        run: echo "The messages are ${{ steps.hello.outputs.messages }}"
       - name: Get the result
         run: echo "The result is ${{ steps.hello.outputs.results }}"
