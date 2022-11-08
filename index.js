@@ -15,12 +15,11 @@ try {
 
 function getDecision() {
     const url = `${core.getInput('tenant')}/v1/data/systems/${core.getInput('system-id')}/${core.getInput('rule')}?publish_decision=true`
-    console.log(`This is what I'm calling: ${url}`);
+    // console.log(`This is what I'm calling: ${url}`);
    
     const http = new httpm.HttpClient();
     const additionalHeaders = {
        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
-    console.log(`github: ${JSON.stringify(github)}`);
     return http.postJson(url, {input:github.context}, additionalHeaders);
   }
