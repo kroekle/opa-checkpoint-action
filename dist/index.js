@@ -9689,15 +9689,12 @@ const github = __nccwpck_require__(3134);
 const httpm = __nccwpck_require__(6227)
 
 try {
-  console.log(`Just a little: ${core.getInput('api-token').substring(0,10)}`);
-  core.setOutput("messages", ["I see you", "but do you see me"]);
-
-    const jsonObj = getDecision();
-
-    jsonObj
-      .then(m => {console.log(`bodyx: ${m}`);core.setOutput("results", m)})
-      .catch(e => {throw e});
-
+  const jsonObj = getDecision();
+  
+  //TODO: not sure if I need to check status here
+  jsonObj
+    .then(m => core.setOutput("results", m.result))
+    .catch(e => {throw e});
 } catch (error) {
   core.setFailed(error.message);
 }
@@ -9710,7 +9707,8 @@ function getDecision() {
     const additionalHeaders = {
        "Authorization": `Bearer ${core.getInput('api-token')}`
     }
-    return  http.postJson(url, {input:{event:github.event_name, context:github.context.payload}}, additionalHeaders);
+    console.log(`github: ${github}`);
+    return http.postJson(url, {input:{event:github.event_name, context:github.context.payload}}, additionalHeaders);
   }
 
 })();
