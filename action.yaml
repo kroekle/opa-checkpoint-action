@@ -16,8 +16,8 @@ inputs:
     default: "rules/main"
 
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  results: 
+    description: 'The results from OPA'
 runs:
   using: 'node16'
   main: 'dist/index.js'
