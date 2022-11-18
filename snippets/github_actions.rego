@@ -27,7 +27,7 @@ package global.github_actions
 #       value: "res.allowed"
 #     - type: rego
 #       key: context
-#       value: "{}""
+#       value: "{}"
 #     - type: rego
 #       key: message
 #       value: "res.message"
