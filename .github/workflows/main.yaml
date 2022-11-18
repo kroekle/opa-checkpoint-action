@@ -1,4 +1,9 @@
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - "*"
+  pull_request:
+    types: [opened,synchronize,reopened]
 
 jobs:
   hello_world_job:
@@ -11,10 +16,10 @@ jobs:
     steps:
       - name: first checkpoint
         id: hello
-        uses: kroekle/opa-checkpoint-action@v1.1.30
+        uses: kroekle/opa-checkpoint-action@v1.1.39
         with:
           tenant: ${{env.tenant}}
           system-id: ${{env.system_id}}
           api-token: ${{env.token}}
-      - name: Get the output messages
-        run: echo "The messages are ${{ fromJSON(steps.hello.outputs.messages) }}"
+      - name: Get the result
+        run: echo "The result is ${{ steps.hello.outputs.results }}"
