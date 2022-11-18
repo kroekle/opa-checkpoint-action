@@ -1,4 +1,4 @@
-package data.global.github_actions
+package global.github_actions
 
 #############################################################################
 # METADATA: library-snippet/custom
