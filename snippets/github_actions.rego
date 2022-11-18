@@ -23,8 +23,14 @@ package global.github_actions
 #       title: "User"
 #   decision:
 #     - type: rego
-#       key: result
-#       value: "res"
+#       key: allowed
+#       value: "res.allowed"
+#     - type: object
+#       key: context
+#       value: {}
+#     - type: rego
+#       key: message
+#       value: "res.message"
 # policy:
 #   rule:
 #     type: rego
@@ -35,6 +41,7 @@ check[res] {
     
 
     res := {
+        "allowed": false,
         "message": sprintf("%v needs to approve access to path: %v", [data.library.parameters.user, data.library.parameters.path])
     }
 }
