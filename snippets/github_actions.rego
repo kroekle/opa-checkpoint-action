@@ -41,7 +41,8 @@ check[res] {
     
 
     res := {
-        "allowed": false,
+        "denied": true,
+        "context": {},
         "message": sprintf("%v needs to approve access to path: %v", [data.library.parameters.user, data.library.parameters.path])
     }
 }
