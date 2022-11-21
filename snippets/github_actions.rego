@@ -23,8 +23,8 @@ package global.github_actions
 #       title: "User"
 #   decision:
 #     - type: rego
-#       key: allowed
-#       value: "res.allowed"
+#       key: denied
+#       value: "res.denied"
 #     - type: rego
 #       key: context
 #       value: "{}"
