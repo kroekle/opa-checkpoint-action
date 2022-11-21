@@ -7,7 +7,7 @@ try {
   
   //TODO: not sure if I need to check status here
   jsonObj
-    .then(m => core.setOutput("results", m.result))
+    .then(m => {core.setOutput("results", m.result.result);if (!m.result.result.allowed) {core.setFailed(m.result.result.messages)}})
     .catch(e => {throw e});
 } catch (error) {
   core.setFailed(error.message);
